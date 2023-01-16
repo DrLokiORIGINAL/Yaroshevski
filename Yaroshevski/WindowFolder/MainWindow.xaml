@@ -1,0 +1,74 @@
+﻿<Window x:Class="Yaroshevski.WindowFolder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yaroshevski.WindowFolder"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="750" Width="1200"
+        MinHeight="750" MinWidth="1200"
+        MaxHeight="750" MaxWidth="1200">
+    <Grid>
+        <Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Yaroshevski;component/ResourceFolder/ImageFolder/Logo.png"
+                           Style="{StaticResource ImageLogoStyle}"/>
+
+                    <StackPanel Grid.Row="1">
+                        <Button x:Name="ListAdminBtn" Width="260"
+                                Height="50"
+                                Click="ListAdminBtn_Click" Cursor="Hand"
+                                Margin="0 10 0 10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Список пользователей"
+                                       Style="{StaticResource LabelNormalStyle}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="AddAdminBtn" Width="260"
+                                Height="50"
+                                Click="AddAdminBtn_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Добавить пользователя"
+                                       Style="{StaticResource LabelNormalStyle}"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <Button x:Name="ExitBtn" Width="260"
+                            HorizontalContentAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Grid.Row="1" Click="ExitBtn_Click"
+                            Height="50">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Выйти"
+                                       Style="{StaticResource LabelNormalStyle}"/>
+                        </StackPanel>
+                    </Button>
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Style="{DynamicResource LabelNormalStyle}"
+                           Content="{Binding ElementName=MainFrame,
+                        Path=Content.Title}"/>
+                    <Frame Grid.Row="1" Name="MaiFrame" Margin="10"
+                           NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
